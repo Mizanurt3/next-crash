@@ -11,6 +11,13 @@ export const blogsdata = [
         description: "Blog 2 description",
     },
 ];
+export async function generateStaticParams() {
+    // No need for external data fetching here as you have `blogsdata`
+    const params = blogsdata.map((post) => ({
+      id: post.id.toString(), // Ensure ID is a string for matching routes
+    }));
+    return params;
+  }
 
 export default function Blogs() {
     
